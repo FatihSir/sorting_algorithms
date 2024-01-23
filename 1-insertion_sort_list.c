@@ -49,7 +49,7 @@ void insertion_sort_list(listint_t **list)
 				swap_list(outer->prev, outer);
 				if (!outer->prev)
 					*list = outer;
-				print_list((const listint_t *) *list);
+				print_list((const listint_t *)*list);
 			}
 			else
 			{
