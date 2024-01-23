@@ -6,6 +6,22 @@
 #include <string.h>
 
 /**
+ * swap - a function to swap two elements
+ *
+ * @x: the first element
+ * @y: the second element
+ *
+ * Return: return nothing
+*/
+void swap(int *x, int *y)
+{
+	int tmp = *x;
+
+	*x = *y;
+	*y = tmp;
+}
+
+/**
  * struct listint_s - Doubly linked list node
  *
  * @n: Integer stored in the node
