@@ -30,7 +30,7 @@ void swap_items(int *x, int *y)
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, k;
+	size_t i, j;
 	size_t min_val;
 
 	for (i = 0; i < size - 1; i++)
@@ -46,18 +46,7 @@ void selection_sort(int *array, size_t size)
 		if (min_val != i)
 		{
 			swap_items(&array[i], &array[min_val]);
-			for (k = 0; k < size; k++)
-			{
-				if (k < size - 1)
-				{
-					printf("%d, ", array[k]);
-				}
-				else
-				{
-					printf("%d", array[k]);
-				}
-			}
-			printf("\n");
+			print_array(array, size);
 		}
 	}
 	printf("\n");
