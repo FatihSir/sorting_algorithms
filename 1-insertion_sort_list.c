@@ -42,11 +42,11 @@ void insertion_sort_list(listint_t **list)
 	{
 		outer = inner;
 		inner = inner->next;
-		while (outer->prev && outer)
+		while (outer && outer->prev)
 		{
 			if (outer->prev->n > outer->n)
 			{
-				swap_list(outer, outer->prev);
+				swap_list(outer->prev, outer);
 				if (!outer->prev)
 					*list = outer;
 				print_list((const listint_t *)*list);
