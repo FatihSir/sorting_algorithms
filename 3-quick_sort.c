@@ -1,5 +1,20 @@
 #include "sort.h"
 /**
+ * swap_items - a function to swap two elements
+ *
+ * @x: the first element
+ * @y: the second element
+ *
+ * Return: return nothing
+*/
+void swap_items(int *x, int *y)
+{
+	int tmp = *x;
+
+	*x = *y;
+	*y = tmp;
+}
+/**
  * partition - a function that divide the array into two parts using pivot
  * where all the elements in the left of the pivot
  * are less and in the right are bigger

@@ -29,21 +29,4 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 size_t partition(int *array, size_t start, size_t end);
 
-/**
- * swap_items - a function to swap two elements
- *
- * @x: the first element
- * @y: the second element
- *
- * Return: return nothing
-*/
-void swap_items(int *x, int *y)
-{
-	int tmp = *x;
-
-	*x = *y;
-	*y = tmp;
-}
-
-
 #endif
