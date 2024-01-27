@@ -1,84 +1,49 @@
 #include "sort.h"
-
 /**
- * swap - a function to swap two elements
+ * partition - a function that divide the array into two parts using pivot
+ * where all the elements in the left of the pivot
+ * are less and in the right are bigger
  *
- * @x: the first element
- * @y: the second element
+ * @array: the array to be partitioned
+ * @start: the first index
+ * @end : the last index
  *
- * Return: return nothing
-*/
-
-void swap(int *x, int *y)
-{
-	int temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
-/**
- * partition - divide the array
- *
- * @array: array to be used
- * @size: size of the array
- *
- * Return: an integer
+ * Return: returns the index of the pivot
  */
-
-int partition(int *array, size_t size)
+size_t partition(int *array, size_t start, size_t end)
 {
-	size_t lb = 0;
-	size_t ub = size - 1;
-	int pivot = array[lb];
-	size_t start = lb;
-	size_t end = ub;
+	size_t p_index = start;
+	size_t i;
+	int pivot = array[end];
 
-	while (start < end)
+	for (i = 0; i <= end - 1  ; ++i)
 	{
-		while (array[start] <= pivot)
+		if (array[i] <= pivot)
 		{
-			start++;
-		}
-		while (array[end] > pivot)
-		{
-			end--;
-		}
-		if (start < end)
-		{
-			swap(&array[start], &array[end]);
-			print_array(array, size);
+			swap_items(&array[i], &array[p_index]);
+			p_index = p_index + 1;
+			print_array(array, end + 1);
 		}
 	}
-	swap(&array[lb], &array[end]);
-	print_array(array, size);
-	return (end);
+	swap_items(&array[p_index], &array[end]);
+	return (p_index);
 }
 /**
- * quick_sort - a function that sorts an array of integers 
- * in ascending order using the Quick sort algorithm
+ * quick_sort - a function that sorts an array of integers in ascending
+ * order using the Quick sort algorithm
  *
- * @araay: array to be used for sorting
- * @size: size of the array
+ * @array: the array to be sorted
+ * @size: the size of the array
  *
  * Return: return nothing
  */
-
 void quick_sort(int *array, size_t size)
 {
-	size_t lb = 0;
-	size_t ub = size - 1;
+	size_t partition_index;
 
-	if (size > 1)
-	{
-		int loc = partition(array, size);
-
-		if (loc > 0)
-		{
-			quick_sort(array, loc);
-		}
-		if (loc + 1 < size - 1)
-		{
-			quick_sort(array + loc + 1, size - loc - 1);
-		}
-	}
+	if (size < 2)
+		return;
+	partition_index = partition(array, 0, size - 1);
+	quick_sort(array, partition_index);
+	quick_sort(array + partition_index + 1, size - partition_index - 1);
 }
