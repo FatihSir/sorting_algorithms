@@ -10,9 +10,9 @@
 */
 void swap(int *a, int *b)
 {
-        int temp = *a;
-        *a = *b;
-        *b = temp;
+	int temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
 /**
@@ -29,6 +29,8 @@ void bubble_sort(int *array, size_t size)
 	size_t i, j;
 	int swap_flag;
 
+	if (array == NULL)
+		return;
 	for (i = 0; i < size - 1; ++i)
 	{
 		swap_flag = 0;
