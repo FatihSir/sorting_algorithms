@@ -34,7 +34,7 @@ size_t partition(int *array, size_t first, size_t last, size_t size)
 
 	for (j = first; j < pivot; ++j)
 	{
-		if (array[j] < array[pivot])
+		if (array[j] <= array[pivot])
 		{
 			i = i + 1;
 			if (i != j)
